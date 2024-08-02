@@ -1,0 +1,45 @@
+{
+  "name": "anenklkd",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "drizzle-kit push",
+    "db:studio": "npx drizzle-kit studio"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^4.30.0",
+    "@neondatabase/serverless": "^0.9.4",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.32.1",
+    "emoji-picker-react": "^4.11.1",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.417.0",
+    "neon": "^2.0.0",
+    "next": "14.2.5",
+    "nookies": "^2.5.2",
+    "openai": "^4.53.2",
+    "pg": "^8.12.0",
+    "react": "^18",
+    "react-cookie": "^7.2.0",
+    "react-dom": "^18",
+    "recharts": "^2.12.7",
+    "simplesets": "^1.2.0",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "drizzle-kit": "^0.23.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.5.4"
+  }
+}
