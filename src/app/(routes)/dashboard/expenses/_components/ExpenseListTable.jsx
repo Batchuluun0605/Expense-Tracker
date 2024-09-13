@@ -1,19 +1,6 @@
-import { Trash } from "lucide-react";
 import React from "react";
-import { toast } from "sonner";
 
 function ExpenseListTable({ expensesList, refreshData }) {
-  //   const deleteExpense = async (expense) => {
-  //     const result = await db
-  //       .delete(Expenses)
-  //       .where(eq(Expenses.id, expense.id))
-  //       .returning();
-
-  //     if (result) {
-  //       toast("Expense Deleted!");
-  //       refreshData();
-  //     }
-  //   };
   return (
     <div className="mt-3">
       <h2 className="font-bold text-lg">Latest Expenses</h2>

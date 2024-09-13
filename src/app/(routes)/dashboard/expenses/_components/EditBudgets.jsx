@@ -15,18 +15,12 @@ import {
 import EmojiPicker from "emoji-picker-react";
 import { useUser } from "@clerk/nextjs";
 import { Input } from "@/components/ui/input";
-import { db } from "@/utils/dbConfig";
-import { Budgets } from "@/utils/schema";
-import { eq } from "drizzle-orm";
-import { toast } from "sonner";
 function EditBudget({ budgetInfo, refreshData }) {
   const [emojiIcon, setEmojiIcon] = useState(budgetInfo?.icon);
   const [openEmojiPicker, setOpenEmojiPicker] = useState(false);
 
   const [name, setName] = useState();
   const [amount, setAmount] = useState();
-
-  const { user } = useUser();
 
   useEffect(() => {
     if (budgetInfo) {

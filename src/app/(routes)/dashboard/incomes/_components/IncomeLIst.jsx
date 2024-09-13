@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CreateIncomes from "./CreateIncomes";
-import { desc, eq, getTableColumns, sql } from "drizzle-orm";
-import { Incomes, Expenses } from "../../../../../../utils/schema";
 import { useUser } from "@clerk/nextjs";
 import IncomeItem from "./IncomeItem";
-import { db } from "../../../../../../utils/dbConfig";
+
 import { useCookies } from "react-cookie";
 
 function IncomeList() {

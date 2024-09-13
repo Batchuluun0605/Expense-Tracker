@@ -1,6 +1,4 @@
 "use client";
-
-import { desc, eq } from "drizzle-orm";
 import React, { useEffect, useState } from "react";
 import ExpenseListTable from "./_components/ExpenseListTable";
 import { useUser } from "@clerk/nextjs";
@@ -12,9 +10,6 @@ function ExpensesScreen() {
   useEffect(() => {
     user && getAllExpenses();
   }, [user]);
-  /**
-   * Used to get All expenses belong to users
-   */
   const getAllExpenses = async () => {};
   return (
     <div className="p-10">

@@ -6,8 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 const Header = () => {
-  const { user, isSignedIn } = useUser();
-  console.log(isSignedIn);
+  const { isSignedIn } = useUser();
   return (
     <div className="p-5 flex justify-between items-center border shadow-sm">
       <div className="flex flex-row items-center">

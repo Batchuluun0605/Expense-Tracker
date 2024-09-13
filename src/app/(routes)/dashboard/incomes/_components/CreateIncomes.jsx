@@ -13,10 +13,7 @@ import {
 import EmojiPicker from "emoji-picker-react";
 import { Button } from "../../../../../components/ui/button";
 import { Input } from "../../../../../components/ui/input";
-import { db } from "../../../../../../utils/dbConfig";
-import { Incomes } from "../../../../../../utils/schema";
 import { useUser } from "@clerk/nextjs";
-import { toast } from "sonner";
 import { useCookies } from "react-cookie";
 
 function CreateIncomes({ refreshData }) {
@@ -36,8 +33,6 @@ function CreateIncomes({ refreshData }) {
       maxAge: 600 * 24 * 60 * 60,
       path: "/",
     });
-    // refreshData();
-    console.log("income created:", newIncome);
   };
 
   return (
