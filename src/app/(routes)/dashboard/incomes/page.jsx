@@ -1,5 +1,5 @@
 import React from "react";
-import IncomeList from "./_components/IncomeList";
+import IncomeList from "./_components/IncomeLIst.jsx";
 
 function Income() {
   return (
