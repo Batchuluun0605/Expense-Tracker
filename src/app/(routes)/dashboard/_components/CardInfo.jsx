@@ -16,7 +16,7 @@ const CardInfo = ({ incomeList, budgetList }) => {
   const [financialAdvice, setFinancialAdvice] = useState("");
 
   useEffect(() => {
-    if (budgetList.length > 0 || incomeList.length > 0) {
+    if (incomeList.length > 0) {
       CalculateCardInfo();
     }
   }, [budgetList, incomeList]);

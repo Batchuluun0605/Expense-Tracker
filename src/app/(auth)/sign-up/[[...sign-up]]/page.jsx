@@ -1,5 +1,6 @@
-import { SignUp } from "@clerk/nextjs";
+"use client";
+import { SignUp as ClerkSignUp } from "@clerk/nextjs";
 
-export default function SignUp() {
-  return <SignUp />;
+export default function MySignUp() {
+  return <ClerkSignUp />;
 }
