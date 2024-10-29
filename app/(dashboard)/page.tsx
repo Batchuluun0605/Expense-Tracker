@@ -4,6 +4,8 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import React from "react";
 import CreateTransactionDialog from "./_components/CreateTransactionDialog";
+import Overview from "./_components/Overview";
+import History from "./_components/History";
 
 const page = async () => {
   const user = await currentUser();
@@ -29,6 +31,7 @@ const page = async () => {
             <CreateTransactionDialog
               trigger={
                 <Button
+                  type="button"
                   variant={"outline"}
                   className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-700 hover:text-white"
                 >
@@ -40,6 +43,7 @@ const page = async () => {
             <CreateTransactionDialog
               trigger={
                 <Button
+                  type="button"
                   variant={"outline"}
                   className="border-rose-500 bg-rose-950 text-white hover:bg-rose-700 hover:text-white"
                 >
@@ -51,6 +55,8 @@ const page = async () => {
           </div>
         </div>
       </div>
+      <Overview userSettings={userSettings} />
+      <History userSettings={userSettings} />
     </div>
   );
 };

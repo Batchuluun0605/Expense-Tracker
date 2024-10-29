@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { TransactionType } from "../../../lib/types";
 import { useQuery } from "@tanstack/react-query";
 import { Category } from "@prisma/client";
@@ -24,15 +24,21 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   type: TransactionType;
+  onChange: (value: string) => void;
 }
 
 interface CategoriesQuery {
   data?: Category[];
 }
 
-const CategoryPicker = ({ type }: Props) => {
+const CategoryPicker = ({ type, onChange }: Props) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
+
+  useEffect(() => {
+    if (!value) return;
+    onChange(value);
+  }, [onChange, value]);
 
   const categoriesQuery = useQuery({
     queryKey: ["categories", type],
@@ -51,7 +57,14 @@ const CategoryPicker = ({ type }: Props) => {
   const selectedCategory = categoriesQuery.data?.find(
     (category: Category) => category.name === value
   );
-  console.log(categoriesQuery.data);
+
+  const successCallback = useCallback(
+    (category: Category) => {
+      setValue(category.name);
+      setOpen((prev) => !prev);
+    },
+    [setOpen, setValue]
+  );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -77,7 +90,10 @@ const CategoryPicker = ({ type }: Props) => {
           }}
         >
           <CommandInput placeholder="Search category..." />
-          <CreateCategoryDialog type={type} />
+          <CreateCategoryDialog
+            type={type}
+            onSuccessCallback={successCallback}
+          />
 
           <CommandEmpty>
             <p>Category not found</p>
