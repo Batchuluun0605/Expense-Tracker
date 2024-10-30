@@ -39,6 +39,8 @@ export async function GET(request: Request) {
     month: queryParams.data.month,
     year: queryParams.data.year,
   });
+
+  return Response.json(data);
 }
 
 export type getHistoryDataResponseType = Awaited<
