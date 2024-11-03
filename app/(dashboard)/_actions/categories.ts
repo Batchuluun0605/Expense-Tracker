@@ -9,7 +9,6 @@ import {
 } from "@/schema/categories";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { use } from "react";
 
 export async function CreateCategory(form: CreateCategorySchemaType) {
   const parsedBody = CreateCategorySchema.safeParse(form);

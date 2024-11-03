@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { TransactionType } from "../../../lib/types";
 import { useQuery } from "@tanstack/react-query";
 import { Category } from "@prisma/client";
@@ -25,10 +25,6 @@ import { cn } from "@/lib/utils";
 interface Props {
   type: TransactionType;
   onChange: (value: string) => void;
-}
-
-interface CategoriesQuery {
-  data?: Category[];
 }
 
 const CategoryPicker = ({ type, onChange }: Props) => {

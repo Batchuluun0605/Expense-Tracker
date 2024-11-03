@@ -28,7 +28,7 @@ ChartJS.register(
 import HistoryPeriodSelector from "./HistoryPeriodSelector";
 import { useQuery } from "@tanstack/react-query";
 import SkeletonWrapper from "@/components/SkeletonWrapper";
-import { getHistoryDataResponseType } from "@/app/api/history-data/route";
+import { log } from "console";
 
 const History = ({ userSettings }: { userSettings: userSettings }) => {
   const [timeframe, setTimeframe] = useState<TimeFrame>("month");
@@ -36,10 +36,6 @@ const History = ({ userSettings }: { userSettings: userSettings }) => {
     month: new Date().getMonth(),
     year: new Date().getFullYear(),
   });
-
-  const formatter = useMemo(() => {
-    return GetFormatterForCurrency(userSettings.currency);
-  }, [userSettings.currency]);
 
   const historyDataQuery = useQuery({
     queryKey: ["overview", "history", timeframe, period],
@@ -53,6 +49,7 @@ const History = ({ userSettings }: { userSettings: userSettings }) => {
     historyDataQuery.data && historyDataQuery.data.length > 0;
 
   // const a = historyDataQuery.data.map((item: any) => item.day);
+  console.log(historyDataQuery.data);
 
   const data = {
     labels:
